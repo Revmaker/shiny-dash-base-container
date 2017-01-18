@@ -2,7 +2,6 @@ FROM r-base:latest
 
 MAINTAINER Kevin Park ”kevin@carlabs.com"
 # install additional packages needed
-# RUN apt-get update; exit 0
 RUN apt-get update &&  apt-get install -y && apt-get install -y -t unstable \
     curl \
     gdebi-core \
@@ -19,9 +18,8 @@ RUN apt-get update &&  apt-get install -y && apt-get install -y -t unstable \
     supervisor\
     python-pip \
     r-base
-# installing some python dependencies
-# RUN pip install -U google-api-python-client
-# RUN pip install -U pyOpenSSL
+
+# Install Shiny
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt)  && \
     wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
