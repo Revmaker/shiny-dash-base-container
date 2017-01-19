@@ -15,6 +15,9 @@ RUN apt-get update &&  apt-get install -y && apt-get install -y -t unstable \
     libxt-dev \
     libxml2-dev\
     unp \
+    unixodbc \
+    unixodbc-dev \
+    odbc-postgresql \
     supervisor\
     python-pip \
     r-base
